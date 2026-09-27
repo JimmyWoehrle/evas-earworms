@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5eddd">
+  <meta name="description" content="{{ description or site.description }}">
+  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+  <title>{{ title }} · {{ site.name }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="{{ '/' | url }}" aria-label="{{ site.name }}, home">
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <span><strong>{{ site.name }}</strong><small>{{ site.tagline }}</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="{{ '/' | url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Listen</a>
+      <a href="{{ '/about/' | url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1">{{ content | safe }}</main>
+  <footer class="site-footer">
+    <p><span aria-hidden="true">◉</span> {{ site.name }} <span class="muted">— independent listening notes.</span></p>
+    <a href="{{ '/feed.xml' | url }}">RSS feed</a>
+  </footer>
+</body>
+</html>

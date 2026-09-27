@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+title: Listen
+description: Close listening notes on the songs that refuse to leave.
+---
+<section class="hero" aria-labelledby="hero-title">
+  <p class="eyebrow">A listening journal</p>
+  <h1 id="hero-title">Songs that<br><em>refuse to leave.</em></h1>
+  <p class="dek">Small, deliberate notes on hooks, textures, and the moments that keep circling back.</p>
+</section>
+<section class="latest" aria-labelledby="latest-title">
+  <header class="section-heading"><h2 id="latest-title">On repeat</h2><span>{{ collections.publishedPosts | length }} notes</span></header>
+  {% if collections.publishedPosts | length %}
+    <ol class="post-list">
+    {% for post in collections.publishedPosts %}
+      <li><a href="{{ post.url | url }}"><span class="post-number">{{ loop.index }}</span><span><strong>{{ post.data.title }}</strong><small>{{ post.data.artist }} · {{ post.date | readableDate }}</small></span><span aria-hidden="true">↗</span></a></li>
+    {% endfor %}
+    </ol>
+  {% else %}
+    <div class="empty-state"><span class="pulse" aria-hidden="true"></span><div><h3>The needle is hovering.</h3><p>The first note is still being shaped. Check back soon—or follow the <a href="{{ '/feed.xml' | url }}">RSS feed</a>.</p></div></div>
+  {% endif %}
+</section>

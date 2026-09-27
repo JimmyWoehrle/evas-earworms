@@ -1,0 +1,1 @@
+module.exports = { name: "Eva’s Earworms", tagline: "Songs that refuse to leave.", description: "Close listening notes on the songs that linger.", url: process.env.SITE_URL || "https://example.invalid/", language: "en" };
